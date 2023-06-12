@@ -5,8 +5,7 @@ filterstring
 """
 
 import sys
-import string
-import ft_filter
+from ft_filter import ft_filter
 
 
 def main():
@@ -16,13 +15,14 @@ def main():
         else:
             input = sys.argv[1].split()
             n = int(sys.argv[2])
-        print(list(filter(lambda x: len(x) > n, input)))
+        print([word for word in ft_filter(lambda x: len(x) > n, input)])
+
     except AssertionError as e:
         print("AssertionError:", e, file=sys.stderr)
+
     except Exception as e:
         print("Error:", e, file=sys.stderr)
 
 
 if __name__ == "__main__":
-    print(ft_filter.__doc__)
     main()
