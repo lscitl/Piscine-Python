@@ -16,14 +16,14 @@ def whatis(args):
                     print("I'm Even.")
             else:
                 raise AssertionError("argument is not an integer")
-        except ValueError as e:
+        except ValueError:
             raise AssertionError("argument is not an integer")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         whatis(sys.argv)
     except AssertionError as e:
         print("AssertionError:", e, file=sys.stderr)
     except Exception as e:
-        print(e.with_traceback, file=sys.stderr)
+        print("Error:", e, file=sys.stderr)
