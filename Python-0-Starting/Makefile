@@ -6,7 +6,7 @@
 #    By: seseo <seseo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/02 17:22:13 by seseo             #+#    #+#              #
-#    Updated: 2023/06/02 22:44:35 by seseo            ###   ########.fr        #
+#    Updated: 2023/06/12 23:36:39 by seseo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ run:
 		docker run \
 		--rm -it --entrypoint bash \
 		--name $(TARGET) \
-		--mount type=bind,source=/goinfre/seseo/Piscine-Python/Python-0-Starting,target=/app,readonly \
+		--mount type=bind,source=$(HOME)/Piscine-Python/Python-0-Starting,target=/app,readonly \
 		--workdir /app \
 		python:3.10
 
