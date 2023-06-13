@@ -46,7 +46,7 @@ def main():
             input = sys.argv[1]
         ret = ""
         for c in input:
-            if c.isalpha() or c is " ":
+            if c.isalpha() or c == " ":
                 ret += MORSE_CODE_DICT[c.upper()] + " "
             else:
                 raise AssertionError("the arguments are bad")
