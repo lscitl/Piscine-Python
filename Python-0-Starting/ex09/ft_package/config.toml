@@ -1,0 +1,7 @@
+name = "ft_package"
+version = "0.0.1"
+description = "A sample test package"
+url = "https://github.com/lscitl/Piscine-Python"
+author = "seseo"
+author_email = "seseo@student.42seoul.kr"
+license = "MIT"
