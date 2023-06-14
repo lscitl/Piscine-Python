@@ -1,3 +1,15 @@
 {
-    "python.analysis.typeCheckingMode": "basic"
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python",
+        // "editor.formatOnType": true,
+    },
+
+    "editor.indentSize": "tabSize",
+
+    "editor.guides.bracketPairs": true,
+    "editor.guides.bracketPairsHorizontal": true,
+
+    "python.formatting.blackArgs": ["--line-length", "79"],
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black",
 }
