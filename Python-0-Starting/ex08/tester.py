@@ -17,10 +17,14 @@ for elem in tqdm(range(333)):
     sleep(0.005)
 print()
 
+i = 0
 for elem in ft_tqdm(range(10)):
-    sleep(1)
+    i += 1
+    sleep(1) if i % 2 == 0 else sleep(2)
 print()
 
+i = 0
 for elem in tqdm(range(10)):
-    sleep(1)
+    i += 1
+    sleep(1) if i % 2 == 0 else sleep(2)
 print()
