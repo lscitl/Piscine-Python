@@ -6,35 +6,38 @@
 #    By: seseo <seseo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/02 17:22:13 by seseo             #+#    #+#              #
-#    Updated: 2023/06/12 23:36:39 by seseo            ###   ########.fr        #
+#    Updated: 2023/06/14 19:46:48 by seseo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 TARGET				:= PiscinePython
+IMG					:= python3
+PWD					:= `$(shell pwd)`
 
 .PHONY:	all
 all:	run
 
-.PHONY:	run
-run:
-		docker run \
-		--rm -it --entrypoint bash \
-		--name $(TARGET) \
-		--mount type=bind,source=$(HOME)/Piscine-Python/Python-0-Starting,target=/app,readonly \
-		--workdir /app \
-		python:3.10
+.PHONY: build
+build:	
+		docker build -t $(IMG) ./
 
-.PHONY:	stop
-stop:
-		docker container stop $(TARGET)
+.PHONY:	run
+run:	build
+		@docker run \
+		--rm -it \
+		--name $(TARGET) \
+		--mount type=bind,source=`$(PWD)`,target=/app \
+		--workdir /app \
+		$(IMG)
 
 .PHONY:	re
-re:		clean
+re:		
 		make run
 
 .PHONY:	clean
-clean:	stop
-
+clean:	
+		
+		
 .PHONY:	fclean
 fclean: clean
-		
+		docker image rm $(IMG)
