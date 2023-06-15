@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ft_package"
+authors = [
+    {name = "seseo", email = "seseo@student.42seoul.kr"}
+]
+description = "A sample test package"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT License"}
+version = "0.0.1"
+
+[project.urls]
+"Home-page" = "https://github.com/lscitl/Piscine-Python"
