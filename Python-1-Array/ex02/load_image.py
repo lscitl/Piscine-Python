@@ -9,10 +9,12 @@ def ft_load(path: str) -> np.array:
     """
     def ft_load(path: str)
 
-    load image(jpg, jpeg) to numpy array
+    load image to numpy array
     """
 
     try:
+        if type(path) != str:
+            raise AssertionError("invalid input type")
         image = Image.open(path)
         data = np.asarray(image)
         print("The shape of image is:", data.shape)
