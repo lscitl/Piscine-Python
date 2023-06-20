@@ -18,6 +18,9 @@ def ft_load(path: str) -> np.array:
         image = Image.open(path)
         data = np.asarray(image)
         print("The shape of image is:", data.shape)
+        print(data)
+        # greyscale converting.
+        data = np.asarray(image.convert("L"))
         return data
     except Exception as e:
         print("Error:", e, file=sys.stderr)
