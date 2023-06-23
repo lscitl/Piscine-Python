@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 def main():
     """
-    load animal.jpeg to numpy array and zoom(slice) it to 400 x 400
+    load animal.jpeg to numpy array and zoom(slice) and rotate 90 degree ccw.
     """
 
     try:
@@ -45,9 +45,16 @@ def main():
                     print("New shape after slicing:", size1, "or", size2)
                     print(reshape_img)
 
-                    # Display the sliced image
+                    rotated_img = np.zeros((len(zoomed_img[0]), len(zoomed_img)))
+                
+                    for y, line in enumerate(zoomed_img.tolist()):
+                        for x, p in enumerate(line):
+                            rotated_img[x][y] = zoomed_img[y][x]
+
+                    print("New shape after Transpose:", str(rotated_img.shape))
+
                     plt.figure()
-                    plt.imshow(zoomed_img, 'gray')
+                    plt.imshow(rotated_img, 'gray')
                     plt.show()
 
                 except AssertionError as e:
