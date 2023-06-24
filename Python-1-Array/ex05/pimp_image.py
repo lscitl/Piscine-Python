@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
-import sys
 from load_image import ft_load
 import numpy as np
 import matplotlib.pyplot as plt
+
 
 def ft_original(array) -> np.array:
     '''
@@ -15,6 +15,7 @@ def ft_original(array) -> np.array:
     plt.show()
     return array
 
+
 def ft_invert(array) -> np.array:
     '''
     Inverts the color of the image received and show image.
@@ -24,6 +25,7 @@ def ft_invert(array) -> np.array:
     plt.title("Invert")
     plt.show()
     return ~array
+
 
 def ft_red(array) -> np.array:
     '''
@@ -35,6 +37,7 @@ def ft_red(array) -> np.array:
     plt.show()
     return array & np.full(array.shape, (255, 0, 0))
 
+
 def ft_green(array) -> np.array:
     '''
     Filter the green color of the image received and show image.
@@ -45,6 +48,7 @@ def ft_green(array) -> np.array:
     plt.show()
     return array & np.full(array.shape, (0, 255, 0))
 
+
 def ft_blue(array) -> np.array:
     '''
     Filter the blue color of the image received and show image.
@@ -54,6 +58,7 @@ def ft_blue(array) -> np.array:
     plt.title("Blue")
     plt.show()
     return array & np.full(array.shape, (0, 0, 255))
+
 
 def ft_grey(array) -> np.array:
     '''
@@ -68,7 +73,8 @@ def ft_grey(array) -> np.array:
 
 def main():
     """
-    load landscape.jpeg to numpy array and convert to invert, red, green, blue, and grey image.
+    load landscape.jpeg to numpy array.
+    convert to invert, red, green, blue, and grey image.
     """
 
     array = ft_load("../landscape.jpeg")
@@ -79,7 +85,7 @@ def main():
     ft_blue(array)
     ft_grey(array)
     print(ft_invert.__doc__)
-    
+
 
 if __name__ == "__main__":
     main()
