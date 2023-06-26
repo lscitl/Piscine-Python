@@ -1,3 +1,3 @@
 #!/bin/sh
 
-pip install flake8 tqdm toml Pillow numpy pandas
+pip install flake8 tqdm toml Pillow numpy pandas matplotlib
