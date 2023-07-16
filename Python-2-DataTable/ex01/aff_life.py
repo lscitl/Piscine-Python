@@ -6,16 +6,27 @@ import matplotlib.pyplot as plt
 
 
 def main():
+    '''
+    Life expenctancy Projections Plot of South Korea.
+    '''
 
-    data = load("../life_expectancy_years.csv")
+    data = load("life_expectancy_years.csv")
 
     try:
         if data.size == 0:
             raise AssertionError("No data")
-        print(data)
-        data.plot(kind="line", y='value')
 
-        plt.title('Life expectancy Projections')
+        kr_data = data.set_index("country").loc['South Korea']
+
+        if kr_data.size == 0:
+            raise AssertionError("There is no South Korea data.")
+
+        kr_data.plot(kind="line")
+
+        # fr_data = data.set_index("country").loc['France']
+        # fr_data.plot(kind="line")
+
+        plt.title('South Korea Life expectancy Projections')
         plt.xlabel('Year')
         plt.ylabel('Life expectancy')
 

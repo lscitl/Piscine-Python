@@ -14,7 +14,7 @@ def load(path: str) -> pd.DataFrame:
     try:
         if type(path) != str:
             raise AssertionError("invalid input type")
-        data = pd.read_csv(path)
+        data = pd.read_csv(path, header=0)
         print("Loading dataset of dimensions:", data.shape)
         return data
     except AssertionError as e:
@@ -25,7 +25,8 @@ def load(path: str) -> pd.DataFrame:
 
 
 def main():
-    print(load("../life_expectancy_years.csv"))
+    print(load("life_expectancy_years.csv"))
+
 
 if __name__ == "__main__":
     main()
