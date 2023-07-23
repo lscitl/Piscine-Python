@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import sys
 from load_image import ft_load
 import numpy as np
 import matplotlib.pyplot as plt
@@ -77,15 +78,22 @@ def main():
     convert to invert, red, green, blue, and grey image.
     """
 
-    array = ft_load("../landscape.jpeg")
-    ft_original(array)
-    ft_invert(array)
-    ft_red(array)
-    ft_green(array)
-    ft_blue(array)
-    ft_grey(array)
-    print(ft_invert.__doc__)
+    try:
+        array = ft_load("landscape.jpeg")
+        ft_original(array)
+        ft_invert(array)
+        ft_red(array)
+        ft_green(array)
+        ft_blue(array)
+        ft_grey(array)
 
+    except AssertionError as e:
+        print("AssertionError:", e, file=sys.stderr)
+
+    except Exception as e:
+        print("Error:", e, file=sys.stderr)
+
+    print(ft_invert.__doc__)
 
 if __name__ == "__main__":
     main()

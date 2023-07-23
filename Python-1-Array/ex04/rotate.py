@@ -12,10 +12,12 @@ def main():
     """
 
     try:
-        image = ft_load("../animal.jpeg")
+        image = ft_load("animal.jpeg")
+
     except AssertionError as e:
         print("AssertionError:", e, file=sys.stderr)
         return
+
     except Exception as e:
         print("Error:", e, file=sys.stderr)
         return

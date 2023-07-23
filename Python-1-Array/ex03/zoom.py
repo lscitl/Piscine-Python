@@ -12,10 +12,12 @@ def main():
     """
 
     try:
-        image = ft_load("../animal.jpeg")
+        image = ft_load("animal.jpeg")
+
     except AssertionError as e:
         print("AssertionError:", e, file=sys.stderr)
         return
+
     except Exception as e:
         print("Error:", e, file=sys.stderr)
         return
@@ -31,7 +33,7 @@ def main():
 
                 try:
                     zoomed_img = image[y - 200:y + 200, x - 200:x + 200]
-                    if zoomed_img.size == 0:
+                    if zoomed_img.size < 400 ** 2:
                         raise AssertionError("Invalid point.")
 
                     reshape_img = np.expand_dims(zoomed_img, axis=-1)
