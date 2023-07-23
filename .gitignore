@@ -2,6 +2,7 @@
 /lib
 /include
 /share
+/.vscode
 
 *.pyc
 .DS_Store
