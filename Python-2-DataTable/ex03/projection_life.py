@@ -36,15 +36,26 @@ def main():
         if inc_data.size == 0:
             raise AssertionError("There is no income data.")
 
-        new_data = pd.merge(inc_data.T.loc[year], life_data.T.loc[year], how="inner", on='country')
-        new_data.plot.scatter(x=year + '_x', y=year + '_y')
+        new_data = pd.DataFrame({
+            "gdp": inc_data.T.loc[year], "life": life_data.T.loc[year]
+            }).dropna()
+        new_data = new_data.reset_index()
+        new_data.sort_values("country")
 
-        # plt.legend(loc="lower right")
+        new_data.plot.scatter(x="gdp", y="life", logx=True)
+
+        # for i, country in enumerate(new_data["country"]):
+        #     plt.scatter([], [], label=country)
+        # plt.legend(new_data['country'], loc="lower right")
+
+        xax = [300, 1000, 10000]
+        plt.xticks(
+            xax,
+            [f"{val/1000:.0f}k" if val >= 1000 else str(val) for val in xax]
+        )
         plt.title(year)
         plt.xlabel("Gross domestic product")
         plt.ylabel("Life Expectancy")
-        plt.xscale('log')
-
         plt.show()
 
     except AssertionError as e:
