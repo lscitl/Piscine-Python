@@ -17,6 +17,7 @@ def main():
 
         if life_data.size == 0:
             raise AssertionError("No data")
+
         life_data.set_index("country", inplace=True)
 
         inc_data = load(
@@ -25,6 +26,7 @@ def main():
 
         if inc_data.size == 0:
             raise AssertionError("No data")
+
         inc_data.set_index("country", inplace=True)
         inc_data.replace(
             {"k": "e+03", "M": "e+06", "B": "e+09"}, regex=True, inplace=True

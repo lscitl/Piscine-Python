@@ -10,9 +10,9 @@ def main():
     Life expenctancy Projections Plot of South Korea.
     '''
 
-    data = load("life_expectancy_years.csv")
-
     try:
+        data = load("life_expectancy_years.csv")
+
         if data.size == 0:
             raise AssertionError("No data")
 
@@ -34,6 +34,7 @@ def main():
 
     except AssertionError as e:
         print("AssertionError:", e, file=sys.stderr)
+
     except Exception as e:
         print("Error:", e, file=sys.stderr)
 

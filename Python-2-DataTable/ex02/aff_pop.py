@@ -10,11 +10,12 @@ def main():
     Population Projections Plot of South Korea vs France.
     '''
 
-    data = load("population_total.csv")
-
     try:
+        data = load("population_total.csv")
+
         if data.size == 0:
             raise AssertionError("No data")
+
         data.set_index('country', inplace=True)
         data.replace(
             {"k": "e+03", "M": "e+06", "B": "e+09"}, regex=True, inplace=True
