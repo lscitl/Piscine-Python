@@ -3,5 +3,6 @@
 /include
 /share
 
+*.pyc
 .DS_Store
 pyvenv.cfg
