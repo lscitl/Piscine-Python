@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-import sys
 from typing import Any
 
 
@@ -29,6 +28,7 @@ def ft_quartile(args: Any) -> list[float]:
         raise ValueError("ERROR")
     ret = []
     args = sorted(args)
+
     # # using median value(Method 1)
     # if len(args) % 2 == 0:
     #     ret.append(ft_median(args[: len(args) // 2]))
@@ -36,17 +36,15 @@ def ft_quartile(args: Any) -> list[float]:
     # else:
     #     ret.append(ft_median(args[: len(args) // 2]))
     #     ret.append(ft_median(args[len(args) // 2 + 1:]))
-    l = len(args)
-    q1_idx = int(l / 4)
-    q2_idx = l / 4 * 3
-    if int(q2_idx) == q2_idx:
-        q2_idx = int(q2_idx) - 1
+
+    # using median value and including it to half values(Method 2)
+    if len(args) % 2 == 1:
+        ret.append(ft_median(args[: len(args) // 2 + 1]))
     else:
-        q2_idx = int(q2_idx)
-    ret.append(args[q1_idx])
-    ret.append(args[q2_idx])
-    ret = list(map(float, ret))
-    return ret
+        ret.append(ft_median(args[: len(args) // 2]))
+    ret.append(ft_median(args[len(args) // 2:]))
+
+    return list(map(float, ret))
 
 
 def ft_std(args: Any) -> float:
@@ -54,7 +52,7 @@ def ft_std(args: Any) -> float:
     if len(args) == 0:
         raise ValueError("ERROR")
     m = ft_mean(args)
-    tmp = [ (m - v) ** 2 for v in args ]
+    tmp = [(m - v) ** 2 for v in args]
     return (sum(tmp) / len(tmp)) ** 0.5
 
 
@@ -63,11 +61,13 @@ def ft_var(args: Any) -> float:
     if len(args) < 2:
         raise ValueError("ERROR")
     m = ft_mean(args)
-    tmp = [ (m - v) ** 2 for v in args ]
+    tmp = [(m - v) ** 2 for v in args]
+
     # # Bassel's correction is applied.
     # if len(args) == 1:
     #     raise ValueError("ERROR")
     # return sum(tmp) / (len(tmp) - 1)
+
     # Bassel's correction is not applied.
     return sum(tmp) / len(tmp)
 
