@@ -3,15 +3,15 @@
 def all_thing_is_obj(object: any) -> int:
     t = type(object)
 
-    if t == type(list()):
+    if t == list:
         print("List :", t)
-    elif t == type(tuple()):
+    elif t == tuple:
         print("Tuple :", t)
-    elif t == type(set()):
+    elif t == set:
         print("Set :", t)
-    elif t == type(dict()):
+    elif t == dict:
         print("Dict :", t)
-    elif t == type(""):
+    elif t == str:
         print(object, "is in the kitchen :", t)
     else:
         print("Type not found")

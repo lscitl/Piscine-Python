@@ -2,16 +2,17 @@
 
 def is_null(func) -> int:
     def inner(obj):
-        if (obj and type(obj) != type(float())) or (type(obj) == type(float()) and str(obj) != 'nan'):
+        if (obj and type(obj) != float) \
+                or (type(obj) == float and str(obj) != 'nan'):
             print("Type not Found")
             return 1
-        elif obj == None:
+        elif obj is None:
             print("Nothing:", end=' ')
         elif obj == 0:
             print("Zero:", end=' ')
         elif obj == '':
             print("Empty:", end=' ')
-        elif obj == False:
+        elif obj is False:
             print("Fake:", end=' ')
         else:
             print("Cheese:", end=' ')

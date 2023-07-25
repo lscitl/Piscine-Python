@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "ft_package"
 authors = [
-    {name = "seseo", email = "seseo@student.42seoul.kr"}
+    { name = "seseo", email = "seseo@student.42seoul.kr" }
 ]
 description = "A sample test package"
 readme = "README.md"

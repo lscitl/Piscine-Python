@@ -1,3 +1,3 @@
 #!/bin/sh
 
-pip install flake8 tqdm toml
+pip install flake8 tqdm toml build
