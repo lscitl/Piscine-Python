@@ -5,6 +5,7 @@ from PIL import Image
 import numpy as np
 import os
 
+
 def get_cur_dir() -> str:
     """
     def get_cur_dir() -> str:

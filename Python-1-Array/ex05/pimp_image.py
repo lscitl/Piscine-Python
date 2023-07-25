@@ -95,5 +95,6 @@ def main():
 
     print(ft_invert.__doc__)
 
+
 if __name__ == "__main__":
     main()
