@@ -1,16 +1,13 @@
 #!/usr/bin/python3
 
-"""
-ft_tqdm(lst: range) -> None:
-
-this function will display processing bar.
-"""
-
 import shutil
 import time
 
 
 def ft_tqdm(lst: range) -> None:
+    """ft_tqdm(lst: range) -> None:
+this function will display processing bar."""
+
     column_space = shutil.get_terminal_size().columns
     total = len(lst)
     last_it_time = start_time = time.time()
@@ -34,7 +31,7 @@ def ft_tqdm(lst: range) -> None:
             last_it_time = cur_it_time
             spit_acc += spit
 
-            if spit_acc > 0.1:
+            if spit_acc >= 0.1:
                 spit_mean = (cur_it_time - start_time) / i
 
                 elapsed_time = int(cur_it_time - start_time)

@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 
-"""
-building main
-"""
 
 import sys
 import string
 
 
-def main():
+def building():
+    """building function works with 0 or 1 arg.
+If arg 0, it will take standard input."""
     try:
         punc = string.punctuation
         ret = [0, 0, 0, 0, 0]
@@ -45,5 +44,5 @@ def main():
 
 
 if __name__ == "__main__":
-    # print(__doc__)
-    main()
+    # print(building.__doc__)
+    building()

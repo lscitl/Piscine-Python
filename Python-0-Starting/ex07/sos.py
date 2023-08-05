@@ -38,7 +38,9 @@ MORSE_CODE_DICT = {
 }
 
 
-def main():
+def sos():
+    '''def sos() -> None
+This function convert the messages to Morse Code.'''
     try:
         if len(sys.argv) != 2:
             raise AssertionError("the arguments are bad")
@@ -61,4 +63,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # print(sos.__doc__)
+    sos()

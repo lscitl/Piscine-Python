@@ -1,19 +1,17 @@
 #!/usr/bin/python3
 
-"""
-ft_filter(function or None, iterable) --> filter object
-
-Return an iterator yielding those items of iterable for which function(item)
-is true. If function is None, return the items that are true.
-"""
 
 from typing import Callable, Generic, Iterable, Iterator, TypeVar, overload
 
 T = TypeVar("T")
 
 
-# class ft_filter:
 class ft_filter(Iterator[T], Generic[T]):
+    """ft_filter(function or None, iterable) --> ft_filter object
+
+Return an iterator yielding those items of iterable for which function(item)
+is true. If function is None, return the items that are true.
+"""
     @overload
     def __init__(self, __function: None, __iterable: Iterable[T]) -> None:
         ...
@@ -25,27 +23,26 @@ class ft_filter(Iterator[T], Generic[T]):
         ...
 
     def __init__(self, __function, __iterable) -> None:
+        '''initialize ft_filter'''
         self.func = __function
-        self.iterable = __iterable
-        self.iterator = iter(__iterable)
+        self.filtered_list = [
+            v for v in __iterable if self.func is None or self.func(v)
+        ]
+        self.idx = 0
 
-    # def __iter__(self):
-    #     return self
+    def __iter__(self) -> 'ft_filter[T]':
+        '''set iterator'''
+        return self
 
-    # def __list__(self):
-    #     return [val for val in self]
-
-    def __iter__(self):
-        return (
-            val for val in self.iterable if self.func is None or self.func(val)
-        )
-
-    def __next__(self):
-        while True:
-            value = next(self.iterator)
-            if self.func is None or self.func(value):
-                return value
+    def __next__(self) -> T:
+        '''set next function'''
+        if self.idx >= len(self.filtered_list):
+            raise StopIteration
+        val = self.filtered_list[self.idx]
+        self.idx += 1
+        return val
 
 
 if __name__ == "__main__":
-    print(__doc__)
+    print(filter.__doc__)
+    print(ft_filter.__doc__)
