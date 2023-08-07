@@ -7,11 +7,10 @@ T = TypeVar("T")
 
 
 class ft_filter(Iterator[T], Generic[T]):
-    """ft_filter(function or None, iterable) --> ft_filter object
+    """filter(function or None, iterable) --> filter object
 
 Return an iterator yielding those items of iterable for which function(item)
-is true. If function is None, return the items that are true.
-"""
+is true. If function is None, return the items that are true."""
     @overload
     def __init__(self, __function: None, __iterable: Iterable[T]) -> None:
         ...
@@ -44,5 +43,10 @@ is true. If function is None, return the items that are true.
 
 
 if __name__ == "__main__":
-    print(filter.__doc__)
-    print(ft_filter.__doc__)
+    # print(filter.__doc__)
+    # print(ft_filter.__doc__)
+
+    og = filter.__doc__
+    ft = ft_filter.__doc__
+
+    print(og == ft)
