@@ -10,22 +10,32 @@ def give_bmi(
 -> list[int | float]
 
 this function calculate bmi."""
-    if type(height) is not list or type(weight) is not list:
-        print("AssertionError: check input type.", file=sys.stderr)
-        return
 
-    if len(height) is not len(weight):
-        print("AssertionError: check list length.", file=sys.stderr)
-        return
-    ret = []
-    for h, w in zip(height, weight):
-        if (type(h) is not int and type(h) is not float) or (
-            type(w) is not int and type(w) is not float
-        ):
-            print("AssertionError: check list values.", file=sys.stderr)
-            return
-        ret.append(w / h**2)
-    return ret
+    try:
+        if not isinstance(height, list) or not isinstance(weight, list):
+            raise TypeError("check input type.")
+
+        if len(height) is not len(weight):
+            raise AssertionError("check list length.")
+
+        ret = []
+        for h, w in zip(height, weight):
+            if isinstance(h, (int, float)) or isinstance(w, (int, float)):
+                raise ValueError("check list values.")
+            ret.append(w / (h ** 2))
+        return ret
+
+    except TypeError as e:
+        print("TypeError:", e, file=sys.stderr)
+
+    except AssertionError as e:
+        print("AssertionError:", e, file=sys.stderr)
+
+    except ValueError as e:
+        print("ValueError:", e, file=sys.stderr)
+
+    except Exception as e:
+        print("Error:", e, file=sys.stderr)
 
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
@@ -33,17 +43,26 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
 
 return the list values of bool types.
 True for above the limit."""
-    if type(bmi) is not list or type(limit) is not int:
-        print("AssertionError: check input type.", file=sys.stderr)
-        return
 
-    ret = []
-    for b in bmi:
-        if type(b) is not int and type(b) is not float:
-            print("AssertionError: check list values.", file=sys.stderr)
-            return
-        ret.append(b > limit)
-    return ret
+    try:
+        if not isinstance(bmi, list) or not isinstance(limit, int):
+            raise TypeError("check input type.")
+
+        ret = []
+        for b in bmi:
+            if not isinstance(b, (int, float)):
+                raise AssertionError("check input type.")
+            ret.append(b > limit)
+        return ret
+
+    except AssertionError as e:
+        print("AssertionError:", e, file=sys.stderr)
+
+    except TypeError as e:
+        print("TypeError:", e, file=sys.stderr)
+
+    except Exception as e:
+        print("Error:", e, file=sys.stderr)
 
 
 def main() -> None:

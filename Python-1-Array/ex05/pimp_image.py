@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def ft_original(array) -> np.array:
+def ft_original(array) -> np.ndarray:
     '''plt show original image'''
     plt.imshow(array)
     plt.axis("off")
@@ -15,16 +15,17 @@ def ft_original(array) -> np.array:
     return array
 
 
-def ft_invert(array) -> np.array:
+def ft_invert(array) -> np.ndarray:
     '''Inverts the color of the image received and show image.'''
-    plt.imshow(~array)
+    # 255 - 
+    plt.imshow()
     plt.axis("off")
     plt.title("Invert")
     plt.show()
-    return ~array
+    return 
 
 
-def ft_red(array) -> np.array:
+def ft_red(array) -> np.ndarray:
     '''Filter the red color of the image received and show image.'''
     plt.imshow(array & np.full(array.shape, (255, 0, 0)))
     plt.axis("off")
@@ -33,7 +34,7 @@ def ft_red(array) -> np.array:
     return array & np.full(array.shape, (255, 0, 0))
 
 
-def ft_green(array) -> np.array:
+def ft_green(array) -> np.ndarray:
     '''Filter the green color of the image received and show image.'''
     plt.imshow(array & np.full(array.shape, (0, 255, 0)))
     plt.axis("off")
@@ -42,7 +43,7 @@ def ft_green(array) -> np.array:
     return array & np.full(array.shape, (0, 255, 0))
 
 
-def ft_blue(array) -> np.array:
+def ft_blue(array) -> np.ndarray:
     '''Filter the blue color of the image received and show image.'''
     plt.imshow(array & np.full(array.shape, (0, 0, 255)))
     plt.axis("off")
@@ -51,7 +52,7 @@ def ft_blue(array) -> np.array:
     return array & np.full(array.shape, (0, 0, 255))
 
 
-def ft_grey(array) -> np.array:
+def ft_grey(array) -> np.ndarray:
     '''Convert to grey color of the image received and show image.'''
     plt.imshow(np.mean(array, axis=2), cmap='gray')
     plt.axis("off")

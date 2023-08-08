@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 def main():
     '''
-    Life expenctancy Projections Plot of South Korea.
+    Life expectancy Projections Plot of South Korea.
     '''
 
     try:

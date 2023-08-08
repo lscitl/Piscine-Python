@@ -1,47 +1,47 @@
 #!/usr/bin/python3
 
 import sys
+import numpy as np
 
 
 def slice_me(family: list, start: int, end: int) -> list:
     """def slice_me(family: list, start: int, end: int) -> list
 Check input list is 2D array, and slice it."""
 
-    if type(
-        family
-    ) is not list or type(start) is not int or type(end) is not int:
-        print("AssertionError: input type error", file=sys.stderr)
-        return family
+    try:
+        if (not isinstance(family, list) or
+                not isinstance(start, int) or
+                not isinstance(end, int) or
+                not all(map(lambda x: isinstance(x, list), family))):
+            raise TypeError("input type error.")
 
-    column = len(family)
-    if column == 0:
-        print("AssertionError: input type error", file=sys.stderr)
-        return family
+        tmp_array = np.array(family)
 
-    if type(family[0]) is not list:
-        print("AssertionError: input type error", file=sys.stderr)
-        return family
+        if tmp_array.ndim != 2:
+            raise AssertionError("input shape is not valid.")
 
-    row = len(family[0])
-    if row == 0:
-        print("AssertionError: input value error", file=sys.stderr)
-        return family
+        sliced_array = tmp_array[start: end]
+        # no column case.
+        if sliced_array.shape[0] == 0:
+            raise AssertionError("slicing failure.")
 
-    if (start >= column or start < -column) or (
-        end >= column or end < -column
-    ):
-        print("AssertionError: index range error", file=sys.stderr)
-        return family
+        print(f"My shape is : {tmp_array.shape}")
+        print(f"My new shape is : {sliced_array.shape}")
+        return sliced_array.tolist()
 
-    for c in family:
-        if len(c) != row:
-            print("AssertionError: list length error", file=sys.stderr)
-            return family
+    except ValueError as e:
+        print("ValueError:", e, file=sys.stderr)
 
-    print(f"My shape is : ({column}, {row})")
-    ret = family[start:end]
-    print(f"My new shape is : ({len(ret)}, {row})")
-    return ret
+    except TypeError as e:
+        print("TypeError:", e, file=sys.stderr)
+
+    except AssertionError as e:
+        print("AssertionError:", e, file=sys.stderr)
+
+    except Exception as e:
+        print("Error:", e, file=sys.stderr)
+
+    return family
 
 
 if __name__ == "__main__":

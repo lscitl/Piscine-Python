@@ -16,7 +16,7 @@ get absolute path of current directory."""
     return cur_dir
 
 
-def ft_load(path: str) -> np.array:
+def ft_load(path: str) -> np.ndarray:
     """def ft_load(path: str)
 
 load image to numpy array"""
