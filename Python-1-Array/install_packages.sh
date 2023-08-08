@@ -6,4 +6,4 @@ fi
 
 source ./bin/activate
 
-pip install flake8 tqdm toml Pillow numpy
+pip install flake8 tqdm toml Pillow numpy matplotlib
