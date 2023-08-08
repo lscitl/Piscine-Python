@@ -7,9 +7,7 @@ import matplotlib.pyplot as plt
 
 
 def ft_original(array) -> np.array:
-    '''
-    plt show original image
-    '''
+    '''plt show original image'''
     plt.imshow(array)
     plt.axis("off")
     plt.title("Original")
@@ -18,9 +16,7 @@ def ft_original(array) -> np.array:
 
 
 def ft_invert(array) -> np.array:
-    '''
-    Inverts the color of the image received and show image.
-    '''
+    '''Inverts the color of the image received and show image.'''
     plt.imshow(~array)
     plt.axis("off")
     plt.title("Invert")
@@ -29,9 +25,7 @@ def ft_invert(array) -> np.array:
 
 
 def ft_red(array) -> np.array:
-    '''
-    Filter the red color of the image received and show image.
-    '''
+    '''Filter the red color of the image received and show image.'''
     plt.imshow(array & np.full(array.shape, (255, 0, 0)))
     plt.axis("off")
     plt.title("Red")
@@ -40,9 +34,7 @@ def ft_red(array) -> np.array:
 
 
 def ft_green(array) -> np.array:
-    '''
-    Filter the green color of the image received and show image.
-    '''
+    '''Filter the green color of the image received and show image.'''
     plt.imshow(array & np.full(array.shape, (0, 255, 0)))
     plt.axis("off")
     plt.title("Green")
@@ -51,9 +43,7 @@ def ft_green(array) -> np.array:
 
 
 def ft_blue(array) -> np.array:
-    '''
-    Filter the blue color of the image received and show image.
-    '''
+    '''Filter the blue color of the image received and show image.'''
     plt.imshow(array & np.full(array.shape, (0, 0, 255)))
     plt.axis("off")
     plt.title("Blue")
@@ -62,9 +52,7 @@ def ft_blue(array) -> np.array:
 
 
 def ft_grey(array) -> np.array:
-    '''
-    Convert to grey color of the image received and show image.
-    '''
+    '''Convert to grey color of the image received and show image.'''
     plt.imshow(np.mean(array, axis=2), cmap='gray')
     plt.axis("off")
     plt.title("Grey")
@@ -73,10 +61,8 @@ def ft_grey(array) -> np.array:
 
 
 def main():
-    """
-    load landscape.jpeg to numpy array.
-    convert to invert, red, green, blue, and grey image.
-    """
+    """load landscape.jpeg to numpy array.
+convert to invert, red, green, blue, and grey image."""
 
     try:
         array = ft_load("landscape.jpeg")

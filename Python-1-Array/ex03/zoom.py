@@ -7,9 +7,7 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    """
-    load animal.jpeg to numpy array and zoom(slice) it to 400 x 400
-    """
+    """load animal.jpeg to numpy array and zoom(slice) it to 400 x 400"""
 
     try:
         image = ft_load("animal.jpeg")
@@ -23,9 +21,7 @@ def main():
         return
 
     def onclick(event):
-        '''
-        matplot loop hook event function
-        '''
+        '''matplot loop hook event function'''
         try:
             # Left mouse button
             if event.button == 1:

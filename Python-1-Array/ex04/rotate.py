@@ -7,9 +7,8 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    """
-    load animal.jpeg to numpy array and zoom(slice) and rotate 90 degree ccw.
-    """
+    """load animal.jpeg to numpy array.
+zoom(slice) and rotate 90 degree ccw."""
 
     try:
         image = ft_load("animal.jpeg")
@@ -23,9 +22,7 @@ def main():
         return
 
     def onclick(event):
-        '''
-        matplot loop hook event function
-        '''
+        '''matplot loop hook event function'''
         try:
             # Left mouse button
             if event.button == 1:
@@ -33,7 +30,7 @@ def main():
 
                 try:
                     zoomed_img = image[y - 200:y + 200, x - 200:x + 200]
-                    if zoomed_img.size == 0:
+                    if zoomed_img.size < 400 ** 2:
                         raise AssertionError("Invalid point.")
 
                     reshape_img = np.expand_dims(zoomed_img, axis=-1)
@@ -56,6 +53,7 @@ def main():
 
                     plt.figure()
                     plt.imshow(rotated_img, 'gray')
+                    print(rotated_img)
                     plt.show()
 
                 except AssertionError as e:

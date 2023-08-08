@@ -4,13 +4,12 @@ import sys
 
 
 def slice_me(family: list, start: int, end: int) -> list:
-    """
-    def slice_me(family: list, start: int, end: int) -> list
+    """def slice_me(family: list, start: int, end: int) -> list
+Check input list is 2D array, and slice it."""
 
-    Check input list is 2D array, and slice it.
-    """
-
-    if type(family) != list or type(start) != int or type(end) != int:
+    if type(
+        family
+    ) is not list or type(start) is not int or type(end) is not int:
         print("AssertionError: input type error", file=sys.stderr)
         return family
 
@@ -19,7 +18,7 @@ def slice_me(family: list, start: int, end: int) -> list:
         print("AssertionError: input type error", file=sys.stderr)
         return family
 
-    if type(family[0]) != list:
+    if type(family[0]) is not list:
         print("AssertionError: input type error", file=sys.stderr)
         return family
 
