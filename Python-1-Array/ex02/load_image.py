@@ -25,8 +25,8 @@ load image to numpy array"""
         if type(path) is not str:
             raise AssertionError("invalid input type")
 
-        if path[0] != '/':
-            cur_dir = get_cur_dir()
+        cur_dir = get_cur_dir()
+        if cur_dir not in path:
             path = cur_dir + '/' + path
 
         image = Image.open(path)
