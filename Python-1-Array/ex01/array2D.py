@@ -12,10 +12,12 @@ Check input list is 2D array, and slice it."""
         if (
             not isinstance(family, list) or
             not isinstance(start, int) or
-            not isinstance(end, int) or
-            not all(map(lambda x: isinstance(x, list), family))
+            not isinstance(end, int)
         ):
             raise TypeError("input type error.")
+
+        if not all(map(lambda x: isinstance(x, list), family)):
+            raise ValueError("input value error.")
 
         tmp_array = np.array(family)
 

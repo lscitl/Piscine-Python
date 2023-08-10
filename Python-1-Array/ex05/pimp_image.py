@@ -108,6 +108,7 @@ def ft_blue(array) -> np.ndarray:
             plt.imshow(blue_img)
         else:
             raise AssertionError("Invalid array format.")
+
         plt.axis("off")
         plt.title("Blue")
         plt.show()
