@@ -20,7 +20,10 @@ this function calculate bmi."""
 
         ret = []
         for h, w in zip(height, weight):
-            if isinstance(h, (int, float)) or isinstance(w, (int, float)):
+            if (
+                not isinstance(h, (int, float)) or
+                not isinstance(w, (int, float))
+            ):
                 raise ValueError("check list values.")
             ret.append(w / (h ** 2))
         return ret

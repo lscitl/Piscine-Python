@@ -9,10 +9,12 @@ def slice_me(family: list, start: int, end: int) -> list:
 Check input list is 2D array, and slice it."""
 
     try:
-        if (not isinstance(family, list) or
-                not isinstance(start, int) or
-                not isinstance(end, int) or
-                not all(map(lambda x: isinstance(x, list), family))):
+        if (
+            not isinstance(family, list) or
+            not isinstance(start, int) or
+            not isinstance(end, int) or
+            not all(map(lambda x: isinstance(x, list), family))
+        ):
             raise TypeError("input type error.")
 
         tmp_array = np.array(family)

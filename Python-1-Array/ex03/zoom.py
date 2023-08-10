@@ -2,6 +2,7 @@
 
 import sys
 from load_image import ft_load
+from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -10,7 +11,8 @@ def main():
     """load animal.jpeg to numpy array and zoom(slice) it to 400 x 400"""
 
     try:
-        image = ft_load("animal.jpeg")
+        image_og = Image.fromarray(ft_load("animal.jpeg"))
+        image = np.array(image_og.convert("L"))
 
     except AssertionError as e:
         print("AssertionError:", e, file=sys.stderr)

@@ -31,7 +31,7 @@ load image to numpy array"""
 
         image = Image.open(path)
         data = np.asarray(image)
-        
+
         print("The shape of image is:", data.shape)
         return data
 
