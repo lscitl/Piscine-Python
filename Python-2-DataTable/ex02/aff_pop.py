@@ -11,7 +11,7 @@ def main():
     try:
         data = load("population_total.csv")
 
-        if data.size == 0:
+        if data is None or data.size == 0:
             raise AssertionError("No data")
 
         data.set_index('country', inplace=True)
@@ -55,4 +55,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    print(load.__doc__)

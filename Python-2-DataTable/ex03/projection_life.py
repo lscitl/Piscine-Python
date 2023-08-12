@@ -15,7 +15,7 @@ def main():
 
         life_data = load("life_expectancy_years.csv")
 
-        if life_data.size == 0:
+        if life_data is None or life_data.size == 0:
             raise AssertionError("No data")
 
         life_data.set_index("country", inplace=True)
@@ -70,4 +70,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    print(load.__doc__)

@@ -11,7 +11,7 @@ def main():
     try:
         data = load("life_expectancy_years.csv")
 
-        if data.size == 0:
+        if data is None or data.size == 0:
             raise AssertionError("No data")
 
         kr_data = data.set_index("country").loc['South Korea']
@@ -40,4 +40,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    print(load.__doc__)
