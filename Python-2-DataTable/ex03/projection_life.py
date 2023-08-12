@@ -41,6 +41,7 @@ def main():
         new_data = pd.DataFrame({
             "gdp": inc_data.T.loc[year], "life": life_data.T.loc[year]
             }).dropna()
+        # print(new_data)
         new_data = new_data.reset_index()
         new_data.sort_values("country")
 

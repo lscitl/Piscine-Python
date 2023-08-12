@@ -6,9 +6,7 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    '''
-    Population Projections Plot of South Korea vs France.
-    '''
+    """Population Projections Plot of South Korea vs France."""
 
     try:
         data = load("population_total.csv")
