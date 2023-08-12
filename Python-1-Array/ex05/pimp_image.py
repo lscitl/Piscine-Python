@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 
 def ft_original(array) -> np.ndarray:
-    '''plt show original image'''
+    """plt show original image."""
     try:
         if len(array.shape) == 3 and array.shape[-1] == 1:
             plt.imshow(array, "gray")
@@ -30,7 +30,7 @@ def ft_original(array) -> np.ndarray:
 
 
 def ft_invert(array) -> np.ndarray:
-    '''Inverts the color of the image received and show the image.'''
+    """Inverts the color of the image received and show the image."""
     try:
         invert_img = 255 - array
         if len(array.shape) == 3 and array.shape[-1] == 1:
@@ -54,7 +54,7 @@ def ft_invert(array) -> np.ndarray:
 
 
 def ft_red(array) -> np.ndarray:
-    '''Filter the red color of the image received and show the image.'''
+    """Filter the red color of the image received and show the image."""
     try:
         if len(array.shape) == 3 and array.shape[-1] == 3:
             red_img = np.array([1, 0, 0]) * array
@@ -76,7 +76,7 @@ def ft_red(array) -> np.ndarray:
 
 
 def ft_green(array) -> np.ndarray:
-    '''Filter the green color of the image received and show the image.'''
+    """Filter the green color of the image received and show the image."""
     try:
         if len(array.shape) == 3 and array.shape[-1] == 3:
             red_blue_img = array.copy()
@@ -100,7 +100,7 @@ def ft_green(array) -> np.ndarray:
 
 
 def ft_blue(array) -> np.ndarray:
-    '''Filter the blue color of the image received and show the image.'''
+    """Filter the blue color of the image received and show the image."""
     try:
         if len(array.shape) == 3 and array.shape[-1] == 3:
             blue_img = array.copy()
@@ -123,7 +123,7 @@ def ft_blue(array) -> np.ndarray:
 
 
 def ft_grey(array) -> np.ndarray:
-    '''Convert to grey color of the image received and show the image.'''
+    """Convert to grey color of the image received and show the image."""
     try:
         if len(array.shape) == 3 and array.shape[-1] == 1:
             grey_img = array.copy()

@@ -7,9 +7,9 @@ import os
 
 
 def get_cur_dir() -> str:
-    """def get_cur_dir() -> str:
+    """Get the absolute path of the current directory.
 
-get absolute path of current directory."""
+Returns absolute path of the current directory."""
 
     abs_path = os.path.abspath(__file__)
     cur_dir = os.path.dirname(abs_path)
@@ -19,15 +19,17 @@ get absolute path of current directory."""
 def ft_load(path: str) -> np.ndarray:
     """def ft_load(path: str)
 
-load image to numpy array"""
+Returns numpy array of the image."""
 
     try:
-        if type(path) is not str:
+        if not isinstance(path, str):
             raise AssertionError("invalid input type")
 
-        cur_dir = get_cur_dir()
-        if cur_dir not in path:
-            path = cur_dir + '/' + path
+        if not path:
+            raise ValueError("invalid input value")
+
+        if not os.path.isabs(path):
+            path = get_cur_dir() + '/' + path
 
         image = Image.open(path)
         data = np.asarray(image)
@@ -35,9 +37,16 @@ load image to numpy array"""
         print("The shape of image is:", data.shape)
         return data
 
+    except AssertionError as e:
+        print("AssertionError:", e, file=sys.stderr)
+
+    except ValueError as e:
+        print("ValueError:", e, file=sys.stderr)
+
     except Exception as e:
         print("Error:", e, file=sys.stderr)
 
 
 if __name__ == "__main__":
     print(ft_load.__doc__)
+    print(get_cur_dir.__doc__)

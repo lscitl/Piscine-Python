@@ -23,7 +23,7 @@ def main():
         return
 
     def onclick(event):
-        '''matplot loop hook event function'''
+        """matplot loop hook event function"""
         try:
             # Left mouse button
             if event.button == 1:
