@@ -6,13 +6,13 @@ from dataclasses import dataclass, field
 
 
 def generate_id() -> str:
-    '''return random generated id'''
+    """return random generated id"""
     return "".join(random.choices(string.ascii_lowercase, k=15))
 
 
 @dataclass
 class Student:
-    '''Student dataclass. id should not given.'''
+    """Student dataclass. id should not given."""
     name: str = field()
     surname: str = field()
     active: bool = field(default=True)

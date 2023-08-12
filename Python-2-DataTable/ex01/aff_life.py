@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    '''Life expectancy Projections Plot of South Korea.'''
+    """Life expectancy Projections Plot of South Korea."""
 
     try:
         data = load("life_expectancy_years.csv")

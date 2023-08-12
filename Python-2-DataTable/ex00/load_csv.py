@@ -37,7 +37,7 @@ load data to pandas dataset"""
 
 
 def main():
-    '''testing load function.'''
+    """testing load function."""
     try:
         print(load("life_expectancy_years.csv"))
 

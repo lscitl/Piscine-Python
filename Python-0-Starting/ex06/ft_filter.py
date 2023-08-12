@@ -22,7 +22,7 @@ is true. If function is None, return the items that are true."""
         ...
 
     def __init__(self, __function, __iterable) -> None:
-        '''initialize ft_filter'''
+        """initialize ft_filter"""
         self.func = __function
         self.filtered_list = [
             v for v in __iterable if self.func is None or self.func(v)
@@ -30,11 +30,11 @@ is true. If function is None, return the items that are true."""
         self.idx = 0
 
     def __iter__(self) -> 'ft_filter[T]':
-        '''set iterator'''
+        """set iterator"""
         return self
 
     def __next__(self) -> T:
-        '''set next function'''
+        """set next function"""
         if self.idx >= len(self.filtered_list):
             raise StopIteration
         val = self.filtered_list[self.idx]

@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 
 def callLimit(limit: int):
-    '''callLimit is a decorator which limits function calls.'''
+    """callLimit is a decorator which limits function calls."""
     count = limit
 
     def callLimiter(function):
-        '''callLimiter function will return the wrapper(limit_function)'''
+        """callLimiter function will return the wrapper(limit_function)"""
 
         def limit_function():
-            '''If count is set to 0, it will print messages.'''
+            """If count is set to 0, it will print messages."""
             nonlocal count
             if count != 0:
                 count -= 1

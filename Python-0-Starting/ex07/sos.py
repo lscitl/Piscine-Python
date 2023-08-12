@@ -4,8 +4,8 @@ import sys
 
 
 def sos():
-    '''def sos() -> None
-This function convert the messages to Morse Code.'''
+    """def sos() -> None
+This function convert the messages to Morse Code."""
     MORSE_CODE_DICT = {
         " ": "/",
         "A": ".-",
