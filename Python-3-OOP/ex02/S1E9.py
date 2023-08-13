@@ -27,7 +27,7 @@ class Stark(Character):
 
     def die(self):
         """Character state turns to die(is_alive == False)"""
-        self.is_alive = False
+        super().die()
 
 
 if __name__ == "__main__":
