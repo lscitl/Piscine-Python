@@ -6,9 +6,7 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    """
-    Population Projections Plot of South Korea vs France.
-    """
+    """Population Projections Plot of South Korea vs France."""
 
     try:
         year = str(1900)
@@ -35,7 +33,7 @@ def main():
             inc_data[inc_data.columns].astype(float).astype(int)
         )
 
-        if inc_data.size == 0:
+        if inc_data is None or inc_data.size == 0:
             raise AssertionError("There is no income data.")
 
         new_data = pd.DataFrame({
@@ -46,10 +44,6 @@ def main():
         new_data.sort_values("country")
 
         new_data.plot.scatter(x="gdp", y="life", logx=True)
-
-        # for i, country in enumerate(new_data["country"]):
-        #     plt.scatter([], [], label=country)
-        # plt.legend(new_data['country'], loc="lower right")
 
         xax = [300, 1000, 10000]
         plt.xticks(
