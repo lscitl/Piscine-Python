@@ -6,11 +6,8 @@ from S1E7 import Baratheon, Lannister
 class King(Baratheon, Lannister):
     """King class. first_name is required. is_alive is optional."""
     def __init__(self, first_name: str, is_alive: bool = True):
-        self.first_name = first_name
-        self.is_alive = is_alive
-        self.family_name = 'Baratheon'
-        self.eyes = 'brown'
-        self.hairs = 'dark'
+        super().__init__(first_name, is_alive)
+        super().set_param_B()
 
     def set_eyes(self, color: str):
         """set eyes color"""
@@ -30,7 +27,7 @@ class King(Baratheon, Lannister):
 
     def die(self):
         """Character state turns to die(is_alive == False)"""
-        self.is_alive = False
+        super().die()
 
 
 if __name__ == '__main__':

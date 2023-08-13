@@ -7,11 +7,9 @@ class Baratheon(Character):
     """Baratheon Family class. first_name is required. is_alive is optional."""
     def __init__(self, first_name: str, is_alive: bool = True):
         """Baratheon Family class initialization"""
-        self.first_name = first_name
-        self.is_alive = is_alive
-        self.family_name = 'Baratheon'
-        self.eyes = 'brown'
-        self.hairs = 'dark'
+        super().__init__(first_name, is_alive)
+        self.set_param_B()
+        # print("Baratheon initializer called.")
 
     def __str__(self):
         """Baratheon Family class __str__ method"""
@@ -23,18 +21,22 @@ class Baratheon(Character):
 
     def die(self):
         """Character state turns to die(is_alive == False)"""
-        self.is_alive = False
+        super().die()
+
+    def set_param_B(self):
+        """set family_name, eyes, hairs"""
+        self.family_name = 'Baratheon'
+        self.eyes = 'brown'
+        self.hairs = 'dark'
 
 
 class Lannister(Character):
     """Lannister Family class. first_name is required. is_alive is optional."""
     def __init__(self, first_name: str, is_alive: bool = True):
         """Lannister Family class initialization"""
-        self.first_name = first_name
-        self.is_alive = is_alive
-        self.family_name = 'Lannister'
-        self.eyes = 'blue'
-        self.hairs = 'light'
+        super().__init__(first_name, is_alive)
+        self.set_param_L()
+        # print("Lannister initializer called.")
 
     def __str__(self):
         """Lannister Family class __str__ method"""
@@ -46,7 +48,13 @@ class Lannister(Character):
 
     def die(self):
         """Character state turns to die(is_alive == False)"""
-        self.is_alive = False
+        super().die()
+
+    def set_param_L(self):
+        """set family_name, eyes, hairs"""
+        self.family_name = 'Lannister'
+        self.eyes = 'blue'
+        self.hairs = 'light'
 
     @classmethod
     def create_lannister(cls, first_name: str, is_alive: bool = True):
