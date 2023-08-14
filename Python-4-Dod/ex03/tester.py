@@ -56,3 +56,9 @@ if __name__ == "__main__":
     except TypeError as e:
         print("TypeError:", e, file=sys.stderr)
     print('------------------------')
+
+    try:
+        student = Student(name="asdf", surname='asdf', active="asdf")
+    except TypeError as e:
+        print("TypeError:", e, file=sys.stderr)
+    print('------------------------')
