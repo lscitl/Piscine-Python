@@ -20,6 +20,13 @@ class Student:
     id: str | None = field(default=None)
 
     def __post_init__(self):
+        if (
+            not isinstance(self.name, str) or
+            not isinstance(self.surname, str) or
+            not isinstance(self.active, bool)
+        ):
+            raise TypeError("Please check input type.")
+
         if self.login is not None:
             m = "Student.__init__() got an unexpected keyword argument 'login'"
             raise TypeError(m)

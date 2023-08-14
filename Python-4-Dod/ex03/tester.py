@@ -53,6 +53,6 @@ if __name__ == "__main__":
 
     try:
         student = Student(name=123, surname='asdf')
-    except ValueError as e:
-        print("ValueError:", e, file=sys.stderr)
+    except TypeError as e:
+        print("TypeError:", e, file=sys.stderr)
     print('------------------------')
