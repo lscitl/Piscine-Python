@@ -44,3 +44,15 @@ if __name__ == "__main__":
     except ValueError as e:
         print("ValueError:", e, file=sys.stderr)
     print('------------------------')
+
+    try:
+        student = Student(name="a", surname='')
+    except ValueError as e:
+        print("ValueError:", e, file=sys.stderr)
+    print('------------------------')
+
+    try:
+        student = Student(name=123, surname='asdf')
+    except ValueError as e:
+        print("ValueError:", e, file=sys.stderr)
+    print('------------------------')
