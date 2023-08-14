@@ -5,44 +5,42 @@ from new_student import Student
 
 
 if __name__ == "__main__":
+
+    print('------------------------')
     student = Student(name="Edward", surname="agle")
     print(student)
+    print('------------------------')
+    student = Student(name="Edward", surname="agle", active=False)
+    print(student)
+    print('------------------------')
 
     try:
         student = Student(name="Edward", surname="agle", id="toto")
         print(student)
-
-    except Exception as e:
-        print('---------')
-        print("Error:", e, file=sys.stderr)
-        print('---------')
-
-    student = Student(name="Edward", surname="agle", active=False)
-    print(student)
+    except TypeError as e:
+        print("TypeError:", e, file=sys.stderr)
+    print('------------------------')
 
     try:
         student = Student(name="Edward", surname="agle", asdf=False)
-        print(student)
-
-    except Exception as e:
-        print('---------')
-        print("Error:", e, file=sys.stderr)
-        print('---------')
+    except TypeError as e:
+        print("TypeError:", e, file=sys.stderr)
+    print('------------------------')
 
     try:
         student = Student(name="Edward")
-        print(student)
+    except TypeError as e:
+        print("TypeError:", e, file=sys.stderr)
 
-    except Exception as e:
-        print('---------')
-        print("Error:", e, file=sys.stderr)
-        print('---------')
-
+    print('------------------------')
     try:
         student = Student(name="Edward", surname='asdf', login='qwer')
-        print(student)
+    except TypeError as e:
+        print("TypeError:", e, file=sys.stderr)
+    print('------------------------')
 
-    except Exception as e:
-        print('---------')
-        print("Error:", e, file=sys.stderr)
-        print('---------')
+    try:
+        student = Student(name="", surname='asdf')
+    except ValueError as e:
+        print("ValueError:", e, file=sys.stderr)
+    print('------------------------')
