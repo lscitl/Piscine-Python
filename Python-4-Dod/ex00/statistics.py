@@ -5,26 +5,36 @@ from typing import Any
 
 def ft_mean(args: Any) -> float:
     """return mean values from given args."""
-    if len(args) == 0:
+    if (
+        len(args) == 0 or
+        not all(map(lambda x: isinstance(x, (int, float)), args))
+    ):
         raise ValueError("ERROR")
     return sum(args) / len(args)
 
 
 def ft_median(args: Any) -> float:
     """return median value from given args."""
-    if len(args) == 0:
+    if (
+        len(args) == 0 or
+        not all(map(lambda x: isinstance(x, (int, float)), args))
+    ):
         raise ValueError("ERROR")
     elif len(args) == 1:
         return args[0]
     args = sorted(args)
+    mid_idx = len(args) // 2 - 1
     if len(args) % 2 == 0:
-        return sum(args[len(args) // 2 - 1: len(args) // 2 + 1]) / 2
+        return (args[mid_idx] + args[mid_idx + 1]) / 2
     return args[len(args) // 2]
 
 
 def ft_quartile(args: Any) -> list[float]:
     """return quartile values(25%, 75%) from given args."""
-    if len(args) < 2:
+    if (
+        len(args) < 2 or
+        not all(map(lambda x: isinstance(x, (int, float)), args))
+    ):
         raise ValueError("ERROR")
     ret = []
     args = sorted(args)
