@@ -4,7 +4,7 @@ def callLimit(limit: int):
     """callLimit is a decorator which limits function calls."""
     if not isinstance(limit, int) or limit < 0:
         raise TypeError("invalid input type.")
-    count = limit
+    count = 0
 
     def callLimiter(function):
         """callLimiter function will return the wrapper(limit_function)"""
@@ -12,8 +12,8 @@ def callLimit(limit: int):
         def limit_function():
             """If count is set to 0, it will print messages."""
             nonlocal count
-            if count > 0:
-                count -= 1
+            if count < limit:
+                count += 1
                 function()
             else:
                 func_name = function.__name__
