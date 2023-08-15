@@ -59,7 +59,10 @@ def ft_quartile(args: Any) -> list[float]:
 
 def ft_std(args: Any) -> float:
     """return standard deviation value from given args."""
-    if len(args) == 0:
+    if (
+        len(args) == 0 or
+        not all(map(lambda x: isinstance(x, (int, float)), args))
+    ):
         raise ValueError("ERROR")
     m = ft_mean(args)
     tmp = [(m - v) ** 2 for v in args]
@@ -68,7 +71,10 @@ def ft_std(args: Any) -> float:
 
 def ft_var(args: Any) -> float:
     """return variance value from given args."""
-    if len(args) < 2:
+    if (
+        len(args) < 2 or
+        not all(map(lambda x: isinstance(x, (int, float)), args))
+    ):
         raise ValueError("ERROR")
     m = ft_mean(args)
     tmp = [(m - v) ** 2 for v in args]
@@ -91,15 +97,22 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
         "std": ft_std,
         "var": ft_var,
     }
-    for v in kwargs.values():
-        try:
-            print(v, ":", func[v](args))
+    try:
+        if not all(map(lambda x: isinstance(x, (int, float)), args)):
+            raise TypeError("ERROR")
 
-        except ValueError:
-            print("ERROR")
+        for v in kwargs.values():
+            try:
+                print(v, ":", func[v](args))
 
-        except Exception:
-            pass
+            except ValueError:
+                print("ERROR")
+
+            except Exception:
+                pass
+
+    except TypeError:
+        print("ERROR")
 
 
 if __name__ == "__main__":
