@@ -30,16 +30,16 @@ class Student:
         if self.login is not None:
             m = "Student.__init__() got an unexpected keyword argument 'login'"
             raise TypeError(m)
-        elif self.name and self.surname:
-            self.login = self.name[0] + self.surname
-        else:
-            raise ValueError("Please check input value.")
 
         if self.id is not None:
             m = "Student.__init__() got an unexpected keyword argument 'id'"
             raise TypeError(m)
-        else:
-            self.id = generate_id()
+
+        if not (self.name and self.surname):
+            raise ValueError("Please check input value.")
+
+        self.login = self.name[0] + self.surname
+        self.id = generate_id()
 
 
 if __name__ == "__main__":
